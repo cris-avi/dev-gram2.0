@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { RegCliPageRoutingModule } from './reg-cli-routing.module';
 
 import { RegCliPage } from './reg-cli.page';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RegCliPageRoutingModule
+    RegCliPageRoutingModule,
+    SharedModule
   ],
   declarations: [RegCliPage]
 })
