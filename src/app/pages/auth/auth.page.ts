@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FirebaseService } from 'src/app/services/firebase.service';
+import { UtilsService } from 'src/app/services/utils.service';
+
+import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-auth',
@@ -13,13 +17,36 @@ export class AuthPage implements OnInit {
     password: new FormControl('', [Validators.required])
   })
 
-  constructor() { }
+  firebaseSvc = inject(FirebaseService);
+  utilsSvc = inject(UtilsService);
 
   ngOnInit() {
   }
 
-  submit(){
-    console.log(this.form.value);
-  }
+  async submit() {
+    if (this.form.valid){
 
+      const loadin = await this.utilsSvc.loading();
+      await loadin.present();
+
+      this.firebaseSvc.signIn(this.form.value as User).then(res=>{
+
+        console.log(res);
+        
+      }).catch(err=>{
+        console.log(err);
+
+        this.utilsSvc.presentToast({
+          message: err.message,
+          duration: 3000,
+          color: 'danger',
+          position: 'middle',
+          icon: 'alert-circle-outline'
+        });
+
+      }).finally(()=>{
+        loadin.dismiss();
+      });
+    }
+  }
 }

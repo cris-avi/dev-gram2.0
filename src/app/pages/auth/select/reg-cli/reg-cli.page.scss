@@ -1,0 +1,100 @@
+#container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    justify-content: space-between;
+    max-height: 100%;
+    padding-top: 5% ;
+    padding-bottom: 10% ;
+    background: linear-gradient(rgb(54, 54, 54) 50%, rgb(90, 90, 90),rgb(170, 170, 170) );
+}
+header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+
+    h1{
+        margin-left: 10%;
+        margin-right: 10%;
+        text-align: center;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    .titulo{
+        text-shadow: -1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white, 1px -1px 0 white;
+        font-weight: bold;
+    }   
+
+    .capitalize{
+        color: white;
+    }
+
+    img{
+        width: 150px;
+        height: 150px;
+        margin: 20px;
+    }
+}
+
+
+
+#regcli-button {
+    display: flex;
+    // margin-bottom: 80%;
+    background-color: rgb(33, 33, 231);
+    // background-color:var(--ion-color-primary);
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: large;
+    margin-top:30%;
+    
+    a{
+        text-decoration: none;
+        color: white;
+
+    }
+}
+
+#titulo {
+    display: flex;
+    text-align: center;
+}
+
+#login-content{
+    background-color: transparent; /* Hace el fondo transparente */
+    border: none; /* Elimina cualquier borde, si es necesario */
+    box-shadow: none; /* Elimina cualquier sombra */
+    border-radius: 16px; /* Elimina cualquier sombra */
+
+}
+
+#login-content ion-list {
+    background-color: transparent; /* Hace el fondo transparente */
+    border: none; /* Elimina cualquier borde, si es necesario */
+    box-shadow: none;
+    gap: 10px;
+
+    // border-radius: 16px; /* Elimina cualquier sombra */
+}
+
+/* Opcional: Estilo para ion-item si también tienen un fondo */
+#login-content ion-item {
+    background-color: black; /* Hace el fondo de cada ion-item transparente */
+    border: none; /* Elimina cualquier borde */
+    border-radius: 16px; /* Elimina cualquier sombra */
+    margin-bottom: 5px;
+    align-items: center;
+    justify-content: center;
+}
+
+#login-content ion-input {
+    background-color: transparent; /* Hace el fondo de cada ion-item transparente */
+    border: none; /* Elimina cualquier borde */
+    text-align: center;
+
+}

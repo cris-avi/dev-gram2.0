@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>reg-cli</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="container">
+    <Header>
+      <!-- <h1>Registrate como Desarrollador</h1> -->
+      <h1 class="capitalize">¡Ya no queda nada! Completa los siguientes datos para crear tu cuenta.</h1>
+      <img src="../../assets/img/cli.png" alt="">
+    </Header>
+    
+    <div id="login-content">
+      <!-- <ion-list> -->
+        <ion-item>
+          <ion-label position="floating">Nombre y Apellido</ion-label>
+          <ion-input type="text" name="nombre"></ion-input>
+        </ion-item>
+        
+        <ion-item>
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input label="Contraseña" type="password" placeholder="********"></ion-input>
+        </ion-item>
+        
+        <ion-item>
+          <ion-label position="floating">Correo electrónico</ion-label>
+          <ion-input label="Email" type="email" placeholder="email@example.com"></ion-input>
+        </ion-item>
+      <!-- </ion-list> -->
+    </div>
+
+    <footer>
+      <ion-buttons id="regcli-button">
+          <a href="/inicio"> Siguiente</a>
+        </ion-buttons>
+    </footer>
+  </div>
+</ion-content>

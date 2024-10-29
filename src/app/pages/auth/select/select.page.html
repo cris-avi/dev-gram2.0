@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>select</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="container" (click)="resetSelection($event)">
+    <h1 class="capitalize">Empecemos <br>Dinos quien eres!</h1>
+
+    <div class="users-icons">
+      <div class="user-dev">
+        <button id="btn-dev" [ngClass]="{'button-active': selectedOption === 'dev', 'button-normal': selectedOption !== 'dev'}"  (click)="onButtonClick('dev', $event)">
+          <img src="../../assets/img/dev2.png" alt="">
+        </button>
+        <p>Soy Desarrollador</p>
+      </div>
+      <div class="user-cli" >
+        <button id="btn-cli" [ngClass]="{'button-active': selectedOption === 'cli', 'button-normal': selectedOption !== 'cli'}" (click)="onButtonClick('cli', $event)">
+          <img src="../../assets/img/cli.png" alt="">
+        </button>
+        <p>Soy Cliente</p>
+      </div>
+    </div>
+    <footer>
+      <ion-buttons id="select-button" (click)="aceptar()">
+        Siguiente
+      </ion-buttons>
+
+      <div>
+        <ion-icon name="happy"></ion-icon>
+        <p>¡Hola! Elige si eres cliente o desarrollador.</p>
+      </div>
+    </footer>
+
+
+  </div>
+</ion-content>

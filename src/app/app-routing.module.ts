@@ -11,6 +11,14 @@ const routes: Routes = [
     path: 'auth',
     loadChildren: () => import('./pages/auth/auth.module').then( m => m.AuthPageModule)
   },
+  {
+    path: 'reg-dev',  // Ruta completa hacia reg-dev dentro de select
+    loadChildren: () => import('./pages/auth/select/reg-dev/reg-dev.module').then(m => m.RegDevPageModule)
+  },
+  {
+    path: 'reg-cli',  // Ruta completa hacia reg-cli dentro de select
+    loadChildren: () => import('./pages/auth/select/reg-cli/reg-cli.module').then(m => m.RegCliPageModule)
+  }
 ];
 
 @NgModule({
