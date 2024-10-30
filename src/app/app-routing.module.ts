@@ -18,7 +18,11 @@ const routes: Routes = [
   {
     path: 'reg-cli',  // Ruta completa hacia reg-cli dentro de select
     loadChildren: () => import('./pages/auth/select/reg-cli/reg-cli.module').then(m => m.RegCliPageModule)
+  },  {
+    path: 'index',
+    loadChildren: () => import('./pages/main/index/index.module').then( m => m.IndexPageModule)
   }
+
 ];
 
 @NgModule({

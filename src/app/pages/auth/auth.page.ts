@@ -31,6 +31,10 @@ export class AuthPage implements OnInit {
 
       this.firebaseSvc.signIn(this.form.value as User).then(res=>{
 
+        this.utilsSvc.saveInLocalStorage('user', this.form.value);
+        this.utilsSvc.routerLink('/index');
+
+        this.form.reset();
         console.log(res);
         
       }).catch(err=>{
@@ -47,6 +51,16 @@ export class AuthPage implements OnInit {
       }).finally(()=>{
         loadin.dismiss();
       });
+    }
+  }
+
+  async getUserInfo(uid: string){
+    if (this.form.valid){
+        
+        const loadin = await this.utilsSvc.loading();
+        await loadin.present();
+  
+        
     }
   }
 }

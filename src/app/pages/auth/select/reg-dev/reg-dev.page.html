@@ -1,4 +1,4 @@
-<app-header title="Registro"></app-header>
+<app-header BackButton="/select" title="Registro"></app-header>
 
 <ion-content [fullscreen]="true">
 
@@ -9,46 +9,77 @@
       <strong class="capitalize">¡Queremos saber a que te dedicas!</strong>
     </Header>
     
-    <div id="login-content">
+    <div class="d-flex-center">
 
-      <app-custom-input
-        label=" Nombre"
-        ></app-custom-input>
-        
-      <ion-list>
+      <form [formGroup]="form" class="auth-form" (ngSubmit)="submit()" (keypress.enter)="submit()">
+
+        <!-- =========== Nombre ===========  -->
+        <app-custom-input 
+          autocomplete="name" 
+          icon="person-outline" 
+          [control]="form.controls.name" 
+          type="text"
+          label="Nombre">
+        </app-custom-input>
+
+        <div class="validators" *ngIf="form.controls.name.errors && form.controls.name.touched">
+
+          <div *ngIf="form.controls.name.errors?. ['required']">El nombre es requerido</div>
+          <div *ngIf="form.controls.name.errors?. ['minlenght']">El nombre debe tener al menos 4 caracteres</div>
+
+        </div>
+
+        <!-- =========== Email =========== -->
+        <app-custom-input 
+          autocomplete="email" 
+          icon="mail-outline" [control]="form.controls.email" 
+          type="email"
+          label="Correo"></app-custom-input>
+
+        <div class="validators" *ngIf="form.controls.email.errors && form.controls.email.touched">
+
+          <div *ngIf="form.controls.email.errors?. ['required']">El correo es requerido</div>
+          <div *ngIf="form.controls.email.errors?. ['email']">Ingrese un correo valido</div>
+
+        </div>
+
+        <!-- =========== Password =========== -->
+        <app-custom-input 
+          [control]="form.controls.password" 
+          icon="lock-closed-outline" 
+          type="password"
+          label="Contraseña"></app-custom-input>
+
+        <div class="validators" *ngIf="form.controls.password.errors && form.controls.password.touched">
+
+          <div *ngIf="form.controls.password.errors?. ['required']">La contraseña es requerida</div>
+
+        </div>
+
+        <ion-button expand="block" mode="ios" class="submit" type="submit" [disabled]="form.invalid">
+          Registrate
+          <ion-icon slot="end" name="person-add-outline"></ion-icon>
+        </ion-button>
 
 
-        <ion-list>
-          
-          <ion-item>
-            <ion-input label="Contraseña" type="password" value="password"></ion-input>
-          </ion-item>
-          
-          <ion-item>
-            <ion-input label="Email" type="email" placeholder="email@example.com"></ion-input>
-          </ion-item>
-          
-          <ion-item>
-            <label for="especialidad">Especialidad</label>
-            <select name="especialidad" id="especialidad">
-              <option value="des-web">Desarrollo Web<option>
-              <option value="des-app-moviles">Des. de Apps Móviles</option>
-              <option value="ciencia-de-Datos">Ciencia de Datos</option>
-              <option value="bases-de-Datos">Bases de Datos</option>
-              <option value="ciberseguridad">Ciberseguridad</option>
-              <option value="des-de-software">Des. de Software</option>
-              <option value="redes-y-sistemas">Redes y Sistemas</option>
-              <option value="IA">Inteligencia Artificial</option>
-            </select>
-          </ion-item>
-        </ion-list>
-      </ion-list>
+      </form>
+
     </div>
-
-    <footer>
+    
+    <!-- <footer>
       <ion-buttons id="regdev-button">
-          <a href="/inicio"> Siguiente</a>
-        </ion-buttons>
-    </footer>
+        <a href="/inicio"> Siguiente</a>
+      </ion-buttons>
+    </footer> -->
   </div>
 </ion-content>
+
+
+<!-- <option value="des-web">Desarrollo Web<option>
+<option value="des-app-moviles">Des. de Apps Móviles</option>
+<option value="ciencia-de-Datos">Ciencia de Datos</option>
+<option value="bases-de-Datos">Bases de Datos</option>
+<option value="ciberseguridad">Ciberseguridad</option>
+<option value="des-de-software">Des. de Software</option>
+<option value="redes-y-sistemas">Redes y Sistemas</option>
+<option value="IA">Inteligencia Artificial</option> -->

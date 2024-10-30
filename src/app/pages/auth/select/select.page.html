@@ -1,4 +1,4 @@
-<app-header title="Select"></app-header>
+<app-header BackButton="/auth" title="Select"></app-header>
 
 <ion-content [fullscreen]="true">
   <div id="container" (click)="resetSelection($event)">
@@ -9,13 +9,13 @@
         <button id="btn-dev" [ngClass]="{'button-active': selectedOption === 'dev', 'button-normal': selectedOption !== 'dev'}"  (click)="onButtonClick('dev', $event)">
           <img src="../../assets/img/dev2.png" alt="">
         </button>
-        <p>Soy Desarrollador</p>
+        <p>Desarrollador</p>
       </div>
       <div class="user-cli" >
         <button id="btn-cli" [ngClass]="{'button-active': selectedOption === 'cli', 'button-normal': selectedOption !== 'cli'}" (click)="onButtonClick('cli', $event)">
           <img src="../../assets/img/cli.png" alt="">
         </button>
-        <p>Soy Cliente</p>
+        <p>Cliente</p>
       </div>
     </div>
     <footer>
