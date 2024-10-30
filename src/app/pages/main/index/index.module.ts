@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { IndexPageRoutingModule } from './index-routing.module';
 
 import { IndexPage } from './index.page';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    IndexPageRoutingModule
+    IndexPageRoutingModule,
+    SharedModule
   ],
   declarations: [IndexPage]
 })

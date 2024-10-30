@@ -19,4 +19,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
   ],
   declarations: [ForgotPasswordPage]
 })
-export class ForgotPasswordPageModule {}
+export class ForgotPasswordPageModule {
+
+  
+}
