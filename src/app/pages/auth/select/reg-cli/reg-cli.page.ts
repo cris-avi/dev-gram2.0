@@ -32,7 +32,7 @@ export class RegCliPage implements OnInit {
       const loadin = await this.utilsSvc.loading();
       await loadin.present();
 
-      this.firebaseSvc.signUp(this.form.value as User).then(async res => {
+      this.firebaseSvc.registerClient(this.form.value as User).then(async res => {
 
         await this.firebaseSvc.updateUser(this.form.value.name);
 

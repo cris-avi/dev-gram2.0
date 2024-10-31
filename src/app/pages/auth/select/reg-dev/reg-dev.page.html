@@ -8,17 +8,13 @@
       <h1>Registrate como Desarrollador</h1>
       <strong class="capitalize">¡Queremos saber a que te dedicas!</strong>
     </Header>
-    
+
     <div class="d-flex-center">
 
       <form [formGroup]="form" class="auth-form" (ngSubmit)="submit()" (keypress.enter)="submit()">
 
         <!-- =========== Nombre ===========  -->
-        <app-custom-input 
-          autocomplete="name" 
-          icon="person-outline" 
-          [control]="form.controls.name" 
-          type="text"
+        <app-custom-input autocomplete="name" icon="person-outline" [control]="form.controls.name" type="text"
           label="Nombre">
         </app-custom-input>
 
@@ -30,10 +26,7 @@
         </div>
 
         <!-- =========== Email =========== -->
-        <app-custom-input 
-          autocomplete="email" 
-          icon="mail-outline" [control]="form.controls.email" 
-          type="email"
+        <app-custom-input autocomplete="email" icon="mail-outline" [control]="form.controls.email" type="email"
           label="Correo"></app-custom-input>
 
         <div class="validators" *ngIf="form.controls.email.errors && form.controls.email.touched">
@@ -44,16 +37,31 @@
         </div>
 
         <!-- =========== Password =========== -->
-        <app-custom-input 
-          [control]="form.controls.password" 
-          icon="lock-closed-outline" 
-          type="password"
+        <app-custom-input [control]="form.controls.password" icon="lock-closed-outline" type="password"
           label="Contraseña"></app-custom-input>
 
         <div class="validators" *ngIf="form.controls.password.errors && form.controls.password.touched">
 
           <div *ngIf="form.controls.password.errors?. ['required']">La contraseña es requerida</div>
 
+        </div>
+
+        <!-- =========== Especialidad =========== -->
+        
+          <!-- <ion-label>Especialidad</ion-label> -->
+          <ion-select label="Especialidad" label-placement=""  [formControl]="form.controls.speciality" placeholder="Selecciona una especialidad">
+            <ion-select-option value="des-app-moviles">Des. de Apps Móviles</ion-select-option>
+            <ion-select-option value="ciencia-de-datos">Ciencia de Datos</ion-select-option>
+            <ion-select-option value="bases-de-datos">Bases de Datos</ion-select-option>
+            <ion-select-option value="ciberseguridad">Ciberseguridad</ion-select-option>
+            <ion-select-option value="des-de-software">Des. de Software</ion-select-option>
+            <ion-select-option value="redes-y-sistemas">Redes y Sistemas</ion-select-option>
+            <ion-select-option value="IA">Inteligencia Artificial</ion-select-option>
+          </ion-select>
+        
+
+        <div class="validators" *ngIf="form.controls.speciality.errors && form.controls.speciality.touched">
+          <div *ngIf="form.controls.speciality.errors?.['required']">La especialidad es requerida</div>
         </div>
 
         <ion-button expand="block" mode="ios" class="submit" type="submit" [disabled]="form.invalid">
@@ -65,21 +73,7 @@
       </form>
 
     </div>
-    
-    <!-- <footer>
-      <ion-buttons id="regdev-button">
-        <a href="/inicio"> Siguiente</a>
-      </ion-buttons>
-    </footer> -->
   </div>
 </ion-content>
 
 
-<!-- <option value="des-web">Desarrollo Web<option>
-<option value="des-app-moviles">Des. de Apps Móviles</option>
-<option value="ciencia-de-Datos">Ciencia de Datos</option>
-<option value="bases-de-Datos">Bases de Datos</option>
-<option value="ciberseguridad">Ciberseguridad</option>
-<option value="des-de-software">Des. de Software</option>
-<option value="redes-y-sistemas">Redes y Sistemas</option>
-<option value="IA">Inteligencia Artificial</option> -->

@@ -1,11 +1,12 @@
 #container{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    // justify-content: center;
     align-items: center;
     height: 100%;
     justify-content: space-between;
     max-height: 100%;
+    gap: 10%;
     // background: linear-gradient(rgb(54, 54, 54) 50%, rgb(90, 90, 90),rgb(170, 170, 170) );
 
 }
@@ -13,7 +14,7 @@
 
 .capitalize{
     font-size: 2rem;
-    margin-top: 20%;
+    margin-top: auto;
     text-align: center;
     // text-shadow: -1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white, 1px -1px 0 white;
     // font-weight: bold;
@@ -104,11 +105,13 @@
     justify-content: center;
     font-size: large;
     width: 85%;
+    max-width: 454px;
 }
 
 footer{
     align-items: center;
-    padding-bottom: 10%;
+    // padding-bottom: 10%;
+    margin-bottom: auto;
     display: flex;
     flex-direction: column;
     gap: 30px;

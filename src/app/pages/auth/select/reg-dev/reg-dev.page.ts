@@ -16,7 +16,7 @@ export class RegDevPage implements OnInit {
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
     name: new FormControl('', [Validators.required, Validators.minLength(4)]),
-
+    speciality: new FormControl('', [Validators.required]),
   })
 
   firebaseSvc = inject(FirebaseService);
@@ -31,7 +31,7 @@ export class RegDevPage implements OnInit {
       const loadin = await this.utilsSvc.loading();
       await loadin.present();
 
-      this.firebaseSvc.signUp(this.form.value as User).then(async res => {
+      this.firebaseSvc.registerDeveloper(this.form.value as User).then(async res => {
 
         await this.firebaseSvc.updateUser(this.form.value.name);
 
