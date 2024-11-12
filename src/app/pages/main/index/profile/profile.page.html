@@ -1,0 +1,98 @@
+<app-header [SignOutButton]="false" [MenuButton]="true" title="Mi Perfil"></app-header>
+
+<ion-content class="ion-padding" [fullscreen]="true">
+  <div class="container" id="main-content">
+
+    <Header>
+      <div class="profile">
+        <div class="profile-image">
+          <!-- <img [src]="user.profilePicture ? user.profilePicture : 'assets/img/profile.jpg'" /> -->
+          <img src="assets/img/profile.jpg" alt="">
+          <h1>⭐ ⭐ ⭐ ⭐ ⭐</h1>
+        </div>
+        <div class="profile-name">
+          <h1 class="dark">{{this.user?.name}}</h1>
+        </div>
+      </div>
+    </Header>
+
+    <!-- <section class="info">
+      <p> <strong>Sobre mi:</strong> <br>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non sit numquam nemo
+        incidunt. Dignissimos animi illum, ab sequi dolore suscipit mollitia velit sint nihil necessitatibus vel est id,
+        tempora reprehenderit.</p>
+
+      <p> <strong>Correo: </strong> {{this.user?.email}}</p>
+
+      <p> <strong>Mis habilidades:</strong> <br><li> {{this.user?.speciality}}</li></p>
+    </section> -->
+
+     <!-- Información -->
+    <section class="info">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Información</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-item lines="none" class="ion-padding-bottom">
+            <p>
+              <ion-icon name="help" slot="start"></ion-icon> 
+              <strong>Sobre mi:</strong> <br>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non sit numquam nemo
+              incidunt. Dignissimos animi illum, ab sequi dolore suscipit mollitia velit sint nihil necessitatibus vel est id,
+              tempora reprehenderit.
+            </p>
+          </ion-item>
+            
+          <ion-item lines="none" class="ion-padding-bottom">
+            <p> 
+              <ion-icon name="mail" slot="start"></ion-icon>
+              <strong>Correo: </strong> {{this.user?.email}}
+            </p>
+          </ion-item>
+
+          <ion-item lines="none" >
+            <p> 
+              <ion-icon name="briefcase" slot="start"></ion-icon>
+              <strong>Mis habilidades:</strong> <br><li> {{this.user?.speciality}}</li>
+            </p>  
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+    </section>
+
+    <!-- Proyectos -->
+    <section class="proyectos">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Algúnos de mis proyectos</ion-card-title>
+        </ion-card-header>
+        
+        <ion-card-content>
+          <ion-item lines="none" class="ion-padding-bottom">
+            <div class="Proyecto">
+              <p><strong>Página Web para "El Secreto de la Z"</strong></p>
+              <img src="assets/img/Proyecto-pizza.png" alt="">
+              <p>Desarrollo de una página web para la pizzería artesanal "El Secreto de la Z" con Astro y Tailwind.</p>
+
+              <p> 
+                <ion-icon name="logo-github" slot="start"></ion-icon>
+                <strong>Link del Repositorio: </strong> <br><a href="https://github.com/nicolas27-10/Pagina-Pizza.git">https://github.com/nicolas27-10/Pagina-Pizza.git</a>
+              </p>
+            </div>
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+    </section>
+
+    <ion-footer>
+      <ion-button expand="block" fill="outline" color="dark" routerLink="/main/index/profile/edit">Editar Perfil</ion-button>
+    </ion-footer>
+
+
+
+    <!-- <ion-button (click)="singOut()">
+        Cerrar sesión
+      </ion-button> -->
+  </div>
+
+</ion-content>

@@ -7,7 +7,12 @@ const routes: Routes = [
   {
     path: '',
     component: IndexPage
-  }
+  },
+  // {
+  //   path: 'profile',
+  //   loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+  // }
+
 ];
 
 @NgModule({

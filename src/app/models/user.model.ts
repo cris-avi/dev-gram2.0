@@ -5,4 +5,5 @@ export interface User {
     name: string,
     userType: 'Desarrollador' | 'Cliente',
     speciality?: string,
+    profilePicture?: string
 }

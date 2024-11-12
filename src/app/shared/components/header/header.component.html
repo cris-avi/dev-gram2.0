@@ -1,14 +1,39 @@
-<ion-header class="ion-no-border">
+
+
+<ion-header  class="ion-no-border">
   <ion-toolbar color="dark">
+
+    <ion-buttons slot="start">
+      <ion-menu-button *ngIf="MenuButton"></ion-menu-button>
+    </ion-buttons>
     
     <ion-buttons slot="start">
       <ion-back-button *ngIf="BackButton" [defaultHref]="BackButton"></ion-back-button>
     </ion-buttons>
 
+    <ion-buttons slot="end">
+      <!-- Botón de cerrar sesión solo si SignOutButton es true -->
+      <ion-button *ngIf="SignOutButton" (click)="singOut()">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
     <ion-title>
       <strong>{{title}}</strong>
       <div class="admin">D E V - G R A M</div>
-      </ion-title>
+    </ion-title>
+
+    <!-- <ion-label slot="end"> -->
+      <div slot="end">
+        <img src="assets/img/dev-logo-solo.png" alt="logo">
+      </div>
+    <!-- </ion-label> -->
   </ion-toolbar>
+
+  <!-- <ion-header class="ion-no-border"> -->
+    <ion-toolbar *ngIf="SearchBar" color="dark" class="ion-padding-top">
+      <ion-searchbar class="ion-padding-top"></ion-searchbar>
+    </ion-toolbar>
+  <!-- </ion-header>  -->
 </ion-header>
 

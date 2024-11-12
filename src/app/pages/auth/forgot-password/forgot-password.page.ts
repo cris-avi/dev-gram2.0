@@ -10,7 +10,8 @@ import { User } from 'src/app/models/user.model';
   templateUrl: './forgot-password.page.html',
   styleUrls: ['./forgot-password.page.scss'],
 })
-export class ForgotPasswordPage implements OnInit {
+// export class ForgotPasswordPage implements OnInit {
+export class ForgotPasswordPage {
 
   form = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -19,8 +20,8 @@ export class ForgotPasswordPage implements OnInit {
   firebaseSvc = inject(FirebaseService);
   utilsSvc = inject(UtilsService);
 
-  ngOnInit() {  
-  }
+  // ngOnInit() {  
+  // }
 
   async submit() {
     if (this.form.valid){

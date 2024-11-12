@@ -3,7 +3,8 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, updateProfile, sendPasswordResetEmail } from 'firebase/auth';
 import { User } from '../models/user.model';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { getFirestore, setDoc, doc, getDoc } from '@angular/fire/firestore';
+import { getFirestore, setDoc, doc, getDoc, getDocs, collection, collectionData, query } from '@angular/fire/firestore';
+import { UtilsService } from './utils.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +13,12 @@ export class FirebaseService {
 
   auth = inject(AngularFireAuth);
   fireStore = inject(AngularFirestore);
+  UtilsSvc= inject(UtilsService);
 
   // ==================== Autenticación ====================
-
+  getAuth() {
+    return getAuth();
+  }
   // ============ Sign In ============
   signIn(user: User) {
     return signInWithEmailAndPassword(getAuth(), user.email, user.password);
@@ -75,7 +79,22 @@ export class FirebaseService {
     return sendPasswordResetEmail(getAuth(), email);
   }
 
+
+  singOut(){
+    getAuth().signOut();
+    localStorage.removeItem('user');
+    this.UtilsSvc.routerLink('/auth');
+  }
+
   //======================Base de datos======================
+
+  //============obtener documento de una colección ======
+  getCollectionData(path: string, collectionQuery?: any) {
+    const ref = collection(getFirestore(), path);
+    return collectionData(query(ref, collectionQuery), {idField: 'id'});
+  }
+
+
   //============Agregar un documento============
   async setDocument(path: string, data: any) {
     return setDoc(doc(getFirestore(), path), data);
@@ -84,5 +103,22 @@ export class FirebaseService {
   //============Obetener un documento============
   async getDocument(path: string) {
     return (await getDoc(doc(getFirestore(), path))).data();
+  }
+
+  async getCollection(collectionPath: string) {
+    console.log('Intentando obtener datos de Firebase');
+    const loadin = await this.UtilsSvc.loading();
+        await loadin.present();
+    const snapshot = await getDocs(collection(getFirestore(), collectionPath));
+    loadin.dismiss();
+    
+    return snapshot.docs.map((doc) => doc.data() as User);
+  }
+
+  //===========Obtener el id del usuario autenticado===========
+  async getCurrentUserId(): Promise<string | null> {
+    const auth = getAuth();
+    const user = auth.currentUser;
+    return user ? user.uid : null;
   }
 }

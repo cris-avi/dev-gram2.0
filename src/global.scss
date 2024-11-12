@@ -36,6 +36,21 @@
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 // @import "@ionic/angular/css/palettes/dark.system.css";
 
+ion-app{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+ion-refresher {
+    ion-refresher-content {
+        background: #f0f0f0 !important;
+        --pulling-icon-color: #007aff !important;
+        --refreshing-spinner-color: #ff6347 !important;
+        color: #007aff !important;
+        padding-bottom: 5%;
+    }
+
+  }
+
 ion-button {
     text-transform: none;
 }

@@ -2,15 +2,12 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AuthPage } from './auth.page';
+import { NoAuthGuard } from 'src/app/guards/no-auth.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: AuthPage
-  },
-  {
-    path: 'sign-up',
-    loadChildren: () => import('./sign-up/sign-up.module').then( m => m.SignUpPageModule)
   },
   {
     path: 'forgot-password',
@@ -19,7 +16,11 @@ const routes: Routes = [
   {
     path: 'select',
     loadChildren: () => import('./select/select.module').then( m => m.SelectPageModule)
-  }
+  },
+  {
+    path: 'reg-dev',  // Ruta completa hacia reg-dev dentro de select
+    loadChildren: () => import('./select/reg-dev/reg-dev.module').then(m => m.RegDevPageModule), canActivate: [NoAuthGuard]
+  },
 
 ];
 

@@ -5,6 +5,8 @@ import { CustomInputComponent } from './components/custom-input/custom-input.com
 import { LogoComponent } from './components/logo/logo.component';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UserCardComponent } from './components/user-card/user-card.component';
+import { UserListComponent } from './components/user-list/user-list.component';
 
 
 
@@ -12,13 +14,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   declarations: [
     HeaderComponent, 
     CustomInputComponent,
-    LogoComponent
+    LogoComponent,
+    UserCardComponent,
+    UserListComponent,
   ],
   exports: [
     HeaderComponent, 
     CustomInputComponent,
     LogoComponent,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    UserCardComponent,
+    UserListComponent
   ],
   imports: [
     CommonModule,

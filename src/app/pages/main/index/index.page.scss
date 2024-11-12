@@ -1,0 +1,34 @@
+ion-refresher {
+    ion-refresher-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start; /* Coloca el contenido en la parte superior */
+        height: 100vh; /* Asegura que ocupe toda la altura del refresher */
+        background: #f0f0f0 !important;
+        --pulling-icon-color: #007aff !important;
+        --refreshing-spinner-color: #ff6347 !important;
+        color: #007aff !important;
+        padding-top: 10px; /* Ajusta para separarlo un poco del borde superior */
+    }
+    
+    background: #f0f0f0 !important;
+    color: #007aff !important;
+
+  }
+
+
+  @media (min-width: 769px) {
+  
+      .cards{
+            display: flex;
+            flex-wrap: wrap;    
+            justify-content: center;
+            width: 100%;
+            margin: 0;
+
+            app-user-list{
+                width: 800px;
+            }
+        }
+    }

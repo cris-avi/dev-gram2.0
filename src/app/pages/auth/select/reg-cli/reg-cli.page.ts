@@ -10,21 +10,22 @@ import { User } from 'src/app/models/user.model';
   templateUrl: './reg-cli.page.html',
   styleUrls: ['./reg-cli.page.scss'],
 })
-export class RegCliPage implements OnInit {
+// export class RegCliPage implements OnInit {
+export class RegCliPage {
 
   form = new FormGroup({
     uid: new FormControl(''),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required]),
     name: new FormControl('', [Validators.required, Validators.minLength(4)]),
-
+    userType: new FormControl(''),
   })
 
   firebaseSvc = inject(FirebaseService);
   utilsSvc = inject(UtilsService);
 
-  ngOnInit() {
-  }
+  // ngOnInit() {
+  // }
 
   async submit() {
     if (this.form.valid) {
@@ -67,6 +68,7 @@ export class RegCliPage implements OnInit {
 
       let path = `users/${uid}`
       delete this.form.value.password;
+      this.form.value.userType = "Cliente";
 
       this.firebaseSvc.setDocument(path, this.form.value).then(async res => {
 

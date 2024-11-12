@@ -9,7 +9,9 @@ import { User } from 'src/app/models/user.model';
   templateUrl: './reg-dev.page.html',
   styleUrls: ['./reg-dev.page.scss'],
 })
-export class RegDevPage implements OnInit {
+// export class RegDevPage implements OnInit {
+export class RegDevPage {
+
 
   form = new FormGroup({
     uid: new FormControl(''),
@@ -17,13 +19,15 @@ export class RegDevPage implements OnInit {
     password: new FormControl('', [Validators.required]),
     name: new FormControl('', [Validators.required, Validators.minLength(4)]),
     speciality: new FormControl('', [Validators.required]),
+    userType: new FormControl(''),
+
   })
 
   firebaseSvc = inject(FirebaseService);
   utilsSvc = inject(UtilsService);
 
-  ngOnInit() {
-  }
+  // ngOnInit() {
+  // }
 
   async submit() {
     if (this.form.valid) {
@@ -36,9 +40,10 @@ export class RegDevPage implements OnInit {
         await this.firebaseSvc.updateUser(this.form.value.name);
 
         let uid = res.user.uid;
+        let userType = 'Desarrollador';
         this.form.controls.uid.setValue(uid);
 
-        this.setUserInfo(uid);
+        this.setUserInfo(uid, userType);
 
       }).catch(err => {
         console.log(err);
@@ -58,7 +63,7 @@ export class RegDevPage implements OnInit {
   }
 
 
-  async setUserInfo(uid:string) {
+  async setUserInfo(uid:string, userType:string) {
     if (this.form.valid) {
 
       const loadin = await this.utilsSvc.loading();
@@ -66,6 +71,7 @@ export class RegDevPage implements OnInit {
 
       let path = `users/${uid}`
       delete this.form.value.password;
+      this.form.value.userType = "Desarrollador";
 
       this.firebaseSvc.setDocument(path, this.form.value).then(async res => {
 

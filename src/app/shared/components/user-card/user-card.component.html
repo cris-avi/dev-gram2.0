@@ -1,0 +1,12 @@
+<ion-card>
+  <ion-item lines="none">
+    <ion-avatar slot="start">
+      <img [src]="user.profilePicture ? user.profilePicture : 'assets/img/profile.jpg'" />
+    </ion-avatar>
+    <ion-label class="text-center">
+      <h2>{{ user.name }}</h2>
+      <p>{{ user.userType }}</p>
+      <p>{{ user.speciality }}</p>
+    </ion-label>
+  </ion-item>
+</ion-card>
