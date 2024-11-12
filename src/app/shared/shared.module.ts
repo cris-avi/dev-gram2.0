@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserCardComponent } from './components/user-card/user-card.component';
 import { UserListComponent } from './components/user-list/user-list.component';
+import { WelcomeModalComponent } from './components/welcome-modal/welcome-modal.component';
 
 
 
@@ -17,6 +18,7 @@ import { UserListComponent } from './components/user-list/user-list.component';
     LogoComponent,
     UserCardComponent,
     UserListComponent,
+    WelcomeModalComponent
   ],
   exports: [
     HeaderComponent, 
@@ -24,7 +26,8 @@ import { UserListComponent } from './components/user-list/user-list.component';
     LogoComponent,
     ReactiveFormsModule,
     UserCardComponent,
-    UserListComponent
+    UserListComponent,
+    WelcomeModalComponent
   ],
   imports: [
     CommonModule,

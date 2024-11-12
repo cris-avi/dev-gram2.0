@@ -5,12 +5,17 @@ import { UtilsService } from 'src/app/services/utils.service';
 
 import { User } from 'src/app/models/user.model';
 
+import { ModalController } from '@ionic/angular';
+import { WelcomeModalComponent } from 'src/app/shared/components/welcome-modal/welcome-modal.component';
+
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.page.html',
   styleUrls: ['./auth.page.scss'],
 })
 export class AuthPage implements OnInit {
+
+  constructor(private modalController: ModalController) { }
 
   form = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -21,6 +26,14 @@ export class AuthPage implements OnInit {
   utilsSvc = inject(UtilsService);
 
   ngOnInit() {
+  }
+
+  async ionViewDidEnter() {
+    const modal = await this.modalController.create({
+      component: WelcomeModalComponent,
+      cssClass: 'welcome-modal'
+    });
+    await modal.present();
   }
 
   async submit() {
