@@ -39,4 +39,16 @@ export class ProfilePage {
   
     console.log('Usuario obtenido:', this.user.name);
   }
+
+  
+  async onFileSelected(event: Event) {
+    const file = (event.target as HTMLInputElement).files[0];
+    if (file) {
+      const userId = await this.firebaseSvc.getCurrentUserId(); // Cambia esto con el UID actual del usuario
+      this.firebaseSvc.uploadProfilePicture(file, userId).then(url => {
+        console.log('URL de la foto de perfil:', url);
+        // Aquí puedes actualizar el estado o mostrar un mensaje al usuario
+      });
+    }
+}
 }

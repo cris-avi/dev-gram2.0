@@ -6,8 +6,9 @@
     <Header>
       <div class="profile">
         <div class="profile-image">
-          <!-- <img [src]="user.profilePicture ? user.profilePicture : 'assets/img/profile.jpg'" /> -->
-          <img src="assets/img/profile.jpg" alt="">
+          <img [src]="user?.profilePicture || 'assets/img/profile.jpg'" alt="Profile Picture">
+          <!-- <img src="assets/img/profile.jpg" alt=""> -->
+          <input type="file" (change)="onFileSelected($event)">
           <h1>⭐ ⭐ ⭐ ⭐ ⭐</h1>
         </div>
         <div class="profile-name">

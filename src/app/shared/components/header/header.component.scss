@@ -17,3 +17,20 @@ img{
     height: 30px;
     margin-right: 5px;
 }
+
+
+@media (min-width: 769px) {
+  
+    .SearchBar{
+        display: flex;
+        flex-wrap: wrap;    
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin: 0;
+        ion-searchbar {
+            width: 800px;   
+            display: flex;         
+        }
+    }
+  }

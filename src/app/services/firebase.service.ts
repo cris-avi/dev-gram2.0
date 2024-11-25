@@ -3,8 +3,10 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, updateProfile, sendPasswordResetEmail } from 'firebase/auth';
 import { User } from '../models/user.model';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { getFirestore, setDoc, doc, getDoc, getDocs, collection, collectionData, query } from '@angular/fire/firestore';
 import { UtilsService } from './utils.service';
+import { finalize } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +16,7 @@ export class FirebaseService {
   auth = inject(AngularFireAuth);
   fireStore = inject(AngularFirestore);
   UtilsSvc= inject(UtilsService);
+  storage = inject(AngularFireStorage);
 
   // ==================== Autenticación ====================
   getAuth() {
@@ -121,4 +124,29 @@ export class FirebaseService {
     const user = auth.currentUser;
     return user ? user.uid : null;
   }
+
+  //==============Subir foto de perfil===============
+  async uploadProfilePicture(file: File, userId: string): Promise<string> {
+    const filePath = `profilePictures/${userId}`;
+    const fileRef = this.storage.ref(filePath);
+    const task = this.storage.upload(filePath, file);
+
+    return new Promise<string>((resolve, reject) => {
+      task.snapshotChanges().pipe(
+        finalize(async () => {
+          const downloadURL = await fileRef.getDownloadURL().toPromise();
+          this.updateUserProfilePicture(userId, downloadURL); // Actualizar Firestore con la URL
+          resolve(downloadURL); // Resolver la URL para otros usos si es necesario
+        })
+      ).subscribe();
+    });
+  }
+
+   // Método para actualizar el campo profilePicture del usuario
+   private updateUserProfilePicture(userId: string, url: string) {
+    this.fireStore.collection('users').doc(userId).update({
+      profilePicture: url
+    });
+  }
+
 }
