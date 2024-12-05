@@ -7,18 +7,36 @@
       <img src="assets/img/dev-logo.png" alt="logo">
     </div>
 
-    <div class="map">
 
+    <div class="contacto">
+
+      <h4>Contactate con nostros por cualquiera de estos medios para resolver tus dudas.</h4>
+
+      <div class="contacto-item">
+        <ion-icon name="call-outline"></ion-icon>
+        <p> 
+          <a href="tel:912345678">9 1234 5678</a>
+        </p>
+      </div>
+      <div class="contacto-item">
+        <ion-icon name="mail-outline"></ion-icon>
+        <p> 
+          <a href="mailto:contacto&#64;gmail.com">contacto&#64;gmail.com</a>
+        </p>
+      </div>
+      <div class="contacto-item" routerLink="mapa">
+        <ion-icon name="location-outline"></ion-icon>
+        <p>Av. Siempre Viva 123</p>
+      </div>
+
+      <h6>Haz click en cualquiera de las opciones para contactarte o conocer la ubicación de nuestras oficinas.</h6>
     </div>
 
-    <script>
-      (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
-        key: "YOUR_API_KEY",
-        v: "weekly",
-        // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
-        // Add other bootstrap parameters as needed, using camel case.
-      });
-    </script>
+
+    <div class="map">
+      
+    </div>
+
 
   </div>
 

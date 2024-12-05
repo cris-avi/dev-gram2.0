@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: ContactPage
+  },  {
+    path: 'mapa',
+    loadChildren: () => import('./mapa/mapa.module').then( m => m.MapaPageModule)
   }
+
 ];
 
 @NgModule({
