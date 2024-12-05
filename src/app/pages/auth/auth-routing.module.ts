@@ -20,7 +20,11 @@ const routes: Routes = [
   {
     path: 'reg-dev',  // Ruta completa hacia reg-dev dentro de select
     loadChildren: () => import('./select/reg-dev/reg-dev.module').then(m => m.RegDevPageModule), canActivate: [NoAuthGuard]
+  },  {
+    path: 'contact',
+    loadChildren: () => import('./contact/contact.module').then( m => m.ContactPageModule)
   },
+
 
 ];
 
