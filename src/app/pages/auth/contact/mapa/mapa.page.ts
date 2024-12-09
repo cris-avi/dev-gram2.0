@@ -11,7 +11,7 @@ const apiKey = environment.firebaseConfig.apiKey;
   standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class MapaPage implements OnInit {
+export class MapaPage {
 
   map: GoogleMap;
   
@@ -21,8 +21,8 @@ export class MapaPage implements OnInit {
     this.initMap();
   }
 
-  ngOnInit() {
-  }
+  // ngOnInit() {
+  // }
 
   async initMap(){
 

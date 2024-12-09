@@ -1,5 +1,13 @@
 capacitor-google-map {
-    display: inline-block;
+    display: flex;
     width: 150%;
     height: 100%;
   }
+
+ion-content {
+  --background: 'transparent';
+} 
+
+app-header{
+  z-index: 1000;
+}
